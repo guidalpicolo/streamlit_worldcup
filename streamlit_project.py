@@ -13,7 +13,7 @@ st.title('FIFA World Cup 2022 - Shot Map & Heatmap')
 st.subheader('Filter by team/player to see their shots and movement on the field!')
 
 # --- Carregar Dados ---
-df = pd.read_csv('copa22_shot_maps.csv')
+df = pd.read_parquet('copa22_events.parquet')
 
 df['location'] = df['location'].apply(lambda x: json.loads(x) if isinstance(x, str) else None)
 df = df.dropna(subset=['location'])
